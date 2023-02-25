@@ -12,14 +12,14 @@ const TOKEN = ''
 
 //-----------------------------------------------------------------
 
-
+//DO NOT TOUCH THESE VALUESS
 let websiteOfflineLogged = false
 let websiteOnlineLogged = false
 let online = ''
 let botRunning = false
 let confirmedoff = false
 
-
+//----------------START UP MESSAGE-------------------------------
 var banner = figlet.textSync('Backup UTIL Bot', {
     font: 'Small',
     horizontalLayout: 'default',
@@ -35,8 +35,7 @@ console.log(color.green.bold(`${color.yellowBright('Logs| ')}Launched BackUp UTI
 console.log(color.magenta(`${color.yellowBright('Logs| ')}Version:${color.cyan('1.0')}`))
 console.log(color.magenta(`${color.yellowBright('Logs| ')}Made by: ${color.cyan('Nolan#9000')}`))
 console.log(color.magenta(`${color.yellowBright('Logs| ')}${color.gray('Checking the bot status...Please wait.')} `))
-
-//console.log(color.red(`${white('Rytale Bot')} is offline!`))
+//-----------------------------------------------------------------
 
 
 
@@ -63,13 +62,13 @@ function checkWebsite() {
         // Check if the response body contains the word "online"
         if (data.includes("online")) {
 
-          online = true
+          online = true //make sure not to delete this
         }
       });
     } else {
 
-        online = false
-        confirmedoff = true
+        online = false //make sure not to delete this
+        confirmedoff = true //make sure not to delete this
     }
   })
   .on("error", (err) => {
@@ -82,13 +81,12 @@ function checkWebsite() {
   if(online) {
     if (!websiteOnlineLogged) {
         console.log(color.green(`${color.yellowBright('Logs| ')}${white('MainBOT')} is Online!`))
-        websiteOnlineLogged = true;
-        websiteOfflineLogged = false;
+        websiteOnlineLogged = true; //make sure not to delete this
+        websiteOfflineLogged = false; //make sure not to delete this
 
         if(botRunning) {
             console.log(color.green(`${color.redBright('Logs| ')}${white('Back up bot')} is now Offline!`))
             client.destroy()
-            // console.log(client)
         }
     }
 }
@@ -96,8 +94,8 @@ function checkWebsite() {
 if(!online && confirmedoff) {
     if (!websiteOfflineLogged) {
         console.log(color.red(`${color.yellowBright('Logs| ')}${white('MainBOT')} is offline!`))
-        websiteOfflineLogged = true;
-        websiteOnlineLogged = false;
+        websiteOfflineLogged = true; //make sure not to delete this
+        websiteOnlineLogged = false; //make sure not to delete this
 
 
         console.log(color.green(`${color.redBright('Logs| ')}${white('Back up bot is now')} Online!`))
@@ -106,14 +104,14 @@ if(!online && confirmedoff) {
             console.log(color.green(`${color.redBright('Logs| ')}${white('Back up bot')} Logged in ${color.white('as')} ${client.user.tag}!!`))
             // console.log(`Logged in as ${client.user.tag}!`);
           });
-          
-          botRunning= true;
+          //ur bot code 
+          botRunning= true; //make sure not to delete this
           client.login(TOKEN);
     }
 }
 }
 
-// Call the checkWebsite function every 5 seconds
+// Call the checkWebsite function every 2 seconds
 setInterval(checkWebsite, 2 * 1000);
 
 // Check the website status every 10 seconds and log a message if it's offline
@@ -123,7 +121,7 @@ if (!online) {
     color.red(`${color.yellowBright('Logs| ')}${white("MainBOT is")} ${red.bold("Still")} offline!`)
     
   );
-  confirmedoff = true
+  confirmedoff = true //make sure not to delete this
 }
 }, 10 * 1000);
 
